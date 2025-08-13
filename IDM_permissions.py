@@ -18,7 +18,7 @@ if api.env.in_server:
 else:
     api.Backend.rpcclient.connect()
 
-raw_host_settings = ipa_host_settings_all=api.Command.host_find(all=True)['result']
+raw_host_settings = api.Command.host_find(all=True)['result']
 for i in raw_host_settings:
     tmp_hbacrule = []
     tmp_sudorule = []
@@ -57,7 +57,7 @@ for i in raw_hostgroup_settings:
         "member_host":tmp_member_host
     }
 
-raw_hbacrule_settings = ipa_host_settings_all=api.Command.hbacrule_find(all=True)['result']
+raw_hbacrule_settings = api.Command.hbacrule_find(all=True)['result']
 for i in raw_hbacrule_settings:
     tmp_memberhost = []
     tmp_memberuser = []
@@ -76,7 +76,7 @@ for i in raw_hbacrule_settings:
         "memberhost":tmp_memberhost, "memberuser":tmp_memberuser
     }
 
-raw_sudorule_settings = ipa_host_settings_all=api.Command.sudorule_find(all=True)['result']
+raw_sudorule_settings = api.Command.sudorule_find(all=True)['result']
 for i in raw_sudorule_settings:
     tmp_memberhost = []
     tmp_memberuser = []
